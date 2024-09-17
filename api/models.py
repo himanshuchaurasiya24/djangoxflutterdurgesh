@@ -24,7 +24,7 @@ class Company(models.Model):
 class  Employee(models.Model):
     employee_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    emai = models.CharField(max_length=30)
+    email = models.CharField(max_length=30)
     address= models.CharField(max_length=200)
     phone =  models.IntegerField()
     about = models.CharField(max_length=100)
@@ -35,3 +35,5 @@ class  Employee(models.Model):
         )
         )
     company= models.ForeignKey(Company, on_delete=models.CASCADE)
+    def __str__(self) -> str:
+        return self.name+' '+ self.address
